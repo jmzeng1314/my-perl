@@ -1,0 +1,13 @@
+args <- commandArgs(trailingOnly = TRUE)
+file=args[1]
+outpng=sub(".txt",".png",file)
+dat=read.table(file)
+names(dat)=c('pos','depth','exon')
+dat$exon=factor(dat$exon)
+library(ggplot2)
+png(outpng,width = 1080, height = 1080)
+p=ggplot(data=dat,aes(x=pos,y=depth,color=exon))+geom_line()
+p=p+facet_wrap(~exon,scales="free_x")
+p=p+theme(legend.position='none')
+print(p)
+dev.off()
