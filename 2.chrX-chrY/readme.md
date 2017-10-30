@@ -11,7 +11,7 @@ wget  http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chrX.fa.gz;
 wget  http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chrY.fa.gz; 
 gunzip chrX.fa.gz
 gunzip chrY.fa.gz
-wget https://github.com/jmzeng1314/my-perl/blob/master/2.chrX-chrY/simulate.pl
+wget https://raw.githubusercontent.com/jmzeng1314/my-perl/master/2.chrX-chrY/simulate.pl
 bwa index chrX.fa
 perl simulate.pl chrY.fa
 bwa mem -t 5 -M chrX.fa read*.fa >read.sam
